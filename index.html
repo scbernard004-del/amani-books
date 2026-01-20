@@ -7,116 +7,142 @@
 
 <style>
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fffaf3;color:#333}
-header{background:linear-gradient(135deg,#ffb703,#ffd166);padding:50px 20px;text-align:center}
-header h1{margin:0;font-size:34px}
-header p{font-size:18px;margin-top:8px}
-section{padding:40px 20px;max-width:1100px;margin:auto}
-.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.book{background:#fff;border-radius:16px;padding:15px;box-shadow:0 8px 20px rgba(0,0,0,.08);text-align:center}
-.book img{width:100%;border-radius:12px}
-.price{font-weight:bold;margin:8px 0;color:#2a9d8f}
-button{background:#25d366;border:none;padding:10px 18px;color:#fff;font-size:14px;border-radius:22px;cursor:pointer}
-footer{background:#eee;text-align:center;padding:20px;font-size:14px}
-.badge{font-size:12px;color:#555}
+header{background:linear-gradient(135deg,#ffb703,#ffd166);padding:40px 20px;text-align:center}
+header h1{margin:0;font-size:32px}
+header p{font-size:16px;margin-top:6px}
+.lang-btn{margin-top:15px}
+.lang-btn button{
+  margin:0 5px;
+  padding:8px 14px;
+  border:none;
+  border-radius:16px;
+  cursor:pointer;
+  background:#333;
+  color:#fff;
+  font-size:13px;
+}
+section{padding:35px 20px;max-width:1100px;margin:auto}
+.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.book{background:#fff;border-radius:14px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);text-align:center}
+.book img{width:100%;border-radius:10px}
+.price{font-weight:bold;margin:6px 0;color:#2a9d8f}
+button.buy{background:#25d366;border:none;padding:10px 16px;color:#fff;font-size:14px;border-radius:20px;cursor:pointer}
+footer{background:#eee;text-align:center;padding:18px;font-size:13px}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>Amani Children Storybooks</h1>
-<p>Affordable stories for every child • English & Kiswahili</p>
+<h1 id="title">Amani Children Storybooks</h1>
+<p id="subtitle">Affordable stories for every child</p>
+
+<div class="lang-btn">
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('sw')">Kiswahili</button>
+</div>
 </header>
 
 <section>
-<h2>📚 Amani Storybooks (Life Skills)</h2>
+<p id="intro">
+Amani Storybooks teach kindness, life skills, and good values.
+All books are delivered instantly as PDFs after payment.
+</p>
+</section>
+
+<section>
+<h2 id="booksTitle">📚 Amani Life Skills Books</h2>
 
 <div class="books">
 
 <div class="book">
 <img src="english-cover.jpg">
 <h3>Amani Big Surprise</h3>
-<p class="badge">Teamwork & family</p>
 <p class="price">Tsh 3,000</p>
 <a href="https://wa.me/255746584214?text=I%20want%20Amani%20Big%20Surprise">
-<button>Buy on WhatsApp</button></a>
+<button class="buy">Buy on WhatsApp</button>
+</a>
 </div>
 
 <div class="book">
 <img src="amani-share-cover.jpg">
 <h3>Amani Learns to Share</h3>
-<p class="badge">Sharing & friendship</p>
 <p class="price">Tsh 3,000</p>
 <a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Share">
-<button>Buy on WhatsApp</button></a>
+<button class="buy">Buy on WhatsApp</button>
+</a>
 </div>
 
 <div class="book">
 <img src="amani-sorry-cover.jpg">
 <h3>Amani Learns to Say Sorry</h3>
-<p class="badge">Respect & forgiveness</p>
 <p class="price">Tsh 3,000</p>
 <a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Say%20Sorry">
-<button>Buy on WhatsApp</button></a>
+<button class="buy">Buy on WhatsApp</button>
+</a>
 </div>
 
 <div class="book">
-<img src="amani-brave-cover.jpg">
-<h3>Amani Learns to Be Brave</h3>
-<p class="badge">Confidence & courage</p>
+<img src="amani-sorry-sw-cover.jpg">
+<h3>Amani Anajifunza Kuomba Msamaha</h3>
 <p class="price">Tsh 3,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Be%20Brave">
-<button>Buy on WhatsApp</button></a>
+<a href="https://wa.me/255746584214?text=Ningependa%20Amani%20Anajifunza%20Kuomba%20Msamaha">
+<button class="buy">Nunua WhatsApp</button>
+</a>
 </div>
 
 </div>
 </section>
 
 <section>
-<h2>📦 Value Bundles (Save More)</h2>
+<h2 id="bundleTitle">📦 Book Bundles</h2>
 
 <div class="books">
 
 <div class="book">
 <img src="bilingual-cover.jpg">
-<h3>3-Book Bundle</h3>
-<p>Any 3 Amani books</p>
+<h3 id="b1">English Bundle – 3 Books</h3>
 <p class="price">Tsh 8,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%203%20Amani%20books%20bundle">
-<button>Buy Bundle</button></a>
+<a href="https://wa.me/255746584214?text=I%20want%20English%203-book%20Amani%20bundle">
+<button class="buy" id="b1btn">Buy Bundle</button>
+</a>
 </div>
 
 <div class="book">
 <img src="bilingual-cover.jpg">
-<h3>5-Book Family Pack</h3>
-<p>Best for home learning</p>
-<p class="price">Tsh 12,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%205%20Amani%20books%20bundle">
-<button>Buy Bundle</button></a>
+<h3 id="b2">Kiswahili Bundle – Vitabu 3</h3>
+<p class="price">Tsh 8,000</p>
+<a href="https://wa.me/255746584214?text=Ningependa%20bundle%20ya%20vitabu%203%20vya%20Amani%20kwa%20Kiswahili">
+<button class="buy" id="b2btn">Nunua Bundle</button>
+</a>
 </div>
 
-</div>
-</section>
-
-<section>
-<h2>🏫 School & Community Pack</h2>
-<p>Special pricing for schools, NGOs, and learning groups.</p>
-
-<div class="books">
-<div class="book">
-<img src="infographic-sample.jpg">
-<h3>School Story Pack</h3>
-<p>Multiple books + activities</p>
-<p class="price">Tsh 25,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%20school%20story%20pack">
-<button>Contact on WhatsApp</button></a>
-</div>
 </div>
 </section>
 
 <footer>
-<p>© 2026 Amani Digital Stories • Stories for every child</p>
+<p id="footer">© 2026 Amani Digital Stories</p>
 </footer>
+
+<script>
+function setLang(lang){
+  if(lang === 'sw'){
+    document.getElementById('title').innerText = 'Vitabu vya Hadithi za Amani';
+    document.getElementById('subtitle').innerText = 'Hadithi nafuu kwa kila mtoto';
+    document.getElementById('intro').innerText =
+      'Vitabu vya Amani vinafundisha maadili, stadi za maisha, na upendo. Vitabu hutumwa kama PDF mara baada ya malipo.';
+    document.getElementById('booksTitle').innerText = '📚 Vitabu vya Maadili ya Amani';
+    document.getElementById('bundleTitle').innerText = '📦 Vifurushi vya Vitabu';
+    document.getElementById('b1').innerText = 'Bundle ya Kiingereza – Vitabu 3';
+    document.getElementById('b1btn').innerText = 'Nunua Bundle';
+    document.getElementById('b2').innerText = 'Bundle ya Kiswahili – Vitabu 3';
+    document.getElementById('b2btn').innerText = 'Nunua Bundle';
+    document.getElementById('footer').innerText = '© 2026 Hadithi za Amani';
+  } else {
+    location.reload();
+  }
+}
+</script>
 
 </body>
 </html>
