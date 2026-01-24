@@ -12,8 +12,6 @@ body{
   background:#fffaf3;
   color:#333;
 }
-
-/* HEADER */
 header{
   background:linear-gradient(135deg,#ffb703,#ffd166);
   padding:40px 20px;
@@ -33,25 +31,18 @@ header p{margin-top:6px;font-size:16px}
   font-size:13px;
 }
 
-/* SECTIONS */
 section{
   padding:35px 20px;
   max-width:1200px;
   margin:auto;
 }
 
-h2{
-  margin-bottom:20px;
-}
-
-/* BOOK GRID */
 .books{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:22px;
 }
 
-/* BOOK CARD */
 .book{
   background:#fff;
   border-radius:18px;
@@ -62,7 +53,6 @@ h2{
   text-align:center;
 }
 
-/* IMAGE FIX */
 .book img{
   width:100%;
   height:360px;
@@ -70,7 +60,6 @@ h2{
   border-radius:14px;
 }
 
-/* TEXT ALIGNMENT */
 .book h3{
   margin:14px 0 6px;
 }
@@ -82,7 +71,6 @@ h2{
   margin-bottom:10px;
 }
 
-/* BUTTON */
 .buy{
   background:#25d366;
   border:none;
@@ -93,7 +81,29 @@ h2{
   cursor:pointer;
 }
 
-/* FOOTER */
+.info-box{
+  background:#fff;
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+  line-height:1.6;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td{
+  padding:10px;
+  border:1px solid #ddd;
+  text-align:left;
+}
+
+th{
+  background:#f2f2f2;
+}
+
 footer{
   background:#eee;
   padding:18px;
@@ -128,75 +138,101 @@ After payment, books are delivered instantly as PDFs via WhatsApp.
 <div class="books">
 
 <div class="book">
-<img src="english-cover.jpg" alt="Amani Big Surprise">
+<img src="english-cover.jpg">
 <h3>Amani Big Surprise</h3>
 <p class="price">Tsh 3,000</p>
 <a href="https://wa.me/255746584214?text=I%20want%20Amani%20Big%20Surprise">
-<button class="buy">Buy on WhatsApp</button>
-</a>
+<button class="buy">Buy on WhatsApp</button></a>
 </div>
 
 <div class="book">
-<img src="amani-share-cover.jpg" alt="Amani Learns to Share">
+<img src="amani-share-cover.jpg">
 <h3>Amani Learns to Share</h3>
 <p class="price">Tsh 3,000</p>
 <a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Share">
-<button class="buy">Buy on WhatsApp</button>
-</a>
+<button class="buy">Buy on WhatsApp</button></a>
 </div>
 
 <div class="book">
-<img src="amani-sorry-cover.jpg" alt="Amani Learns to Say Sorry">
+<img src="amani-sorry-cover.jpg">
 <h3>Amani Learns to Say Sorry</h3>
 <p class="price">Tsh 3,000</p>
 <a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Say%20Sorry">
-<button class="buy">Buy on WhatsApp</button>
-</a>
+<button class="buy">Buy on WhatsApp</button></a>
+</div>
+
+<!-- NEW BOOK: BE BRAVE -->
+<div class="book">
+<img src="amani-brave-cover.jpg">
+<h3>Amani Learns to Be Brave</h3>
+<p class="price">Tsh 3,000</p>
+<a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Be%20Brave">
+<button class="buy">Buy on WhatsApp</button></a>
 </div>
 
 <div class="book">
-<img src="amani-share-sw-cover.jpg" alt="Amani Anajifunza Kushirikiana">
+<img src="amani-share-sw-cover.jpg">
 <h3>Amani Anajifunza Kushirikiana</h3>
 <p class="price">Tsh 3,000</p>
 <a href="https://wa.me/255746584214?text=Ningependa%20Amani%20Anajifunza%20Kushirikiana">
-<button class="buy">Nunua WhatsApp</button>
-</a>
+<button class="buy">Nunua WhatsApp</button></a>
 </div>
 
 <div class="book">
-<img src="amani-sorry-sw-cover.jpg" alt="Amani Anajifunza Kuomba Msamaha">
+<img src="amani-sorry-sw-cover.jpg">
 <h3>Amani Anajifunza Kuomba Msamaha</h3>
 <p class="price">Tsh 3,000</p>
 <a href="https://wa.me/255746584214?text=Ningependa%20Amani%20Anajifunza%20Kuomba%20Msamaha">
-<button class="buy">Nunua WhatsApp</button>
-</a>
+<button class="buy">Nunua WhatsApp</button></a>
 </div>
 
 </div>
 </section>
 
 <section>
-<h2 id="bundleTitle">📦 Book Bundles</h2>
+<h2 id="deliveryTitle">📥 How Download Works</h2>
 
-<div class="books">
-
-<div class="book">
-<img src="bilingual-cover.jpg" alt="English Bundle">
-<h3 id="b1">English Bundle – 3 Books</h3>
-<p class="price">Tsh 8,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%20English%203-book%20Amani%20bundle">
-<button class="buy" id="b1btn">Buy Bundle</button>
-</a>
+<div class="info-box" id="deliveryText">
+<strong>Step 1:</strong> Click “Buy on WhatsApp”.<br>
+<strong>Step 2:</strong> You receive payment instructions.<br>
+<strong>Step 3:</strong> After payment, your book or bundle is sent instantly as a PDF.<br><br>
+📘 Read on phone, tablet, or print at home.
 </div>
+</section>
 
-<div class="book">
-<img src="bilingual-cover.jpg" alt="Kiswahili Bundle">
-<h3 id="b2">Kiswahili Bundle – Vitabu 3</h3>
-<p class="price">Tsh 8,000</p>
-<a href="https://wa.me/255746584214?text=Ningependa%20bundle%20ya%20vitabu%203%20vya%20Amani%20kwa%20Kiswahili">
-<button class="buy" id="b2btn">Nunua Bundle</button>
-</a>
+<section>
+<h2 id="printTitle">🖨️ Printed Books & School Orders</h2>
+
+<div class="info-box" id="printText">
+We also offer <strong>printed Amani storybooks</strong> for:<br>
+• Schools & kindergartens<br>
+• NGOs & community programs<br>
+• Bulk family orders<br><br>
+
+📦 English, Kiswahili, or bilingual<br>
+📐 A4 child-friendly layout<br><br>
+
+<a href="https://wa.me/255746584214?text=I%20want%20printed%20Amani%20books%20for%20school%20or%20bulk%20order">
+<button class="buy">Order Printed Books on WhatsApp</button></a>
 </div>
+</section>
+
+<section>
+<h2 id="schoolTitle">🏫 School & Bulk Pricing</h2>
+
+<div class="info-box">
+
+<table>
+<tr><th>Quantity</th><th>Price per Book</th><th>Notes</th></tr>
+<tr><td>10 – 49 books</td><td>Tsh 2,500</td><td>Small school orders</td></tr>
+<tr><td>50 – 199 books</td><td>Tsh 2,000</td><td>Medium school programs</td></tr>
+<tr><td>200+ books</td><td>Custom quote</td><td>NGOs & large projects</td></tr>
+</table>
+
+<br>
+
+<a href="https://wa.me/255746584214?text=I%20want%20school%20bulk%20pricing%20for%20Amani%20books">
+<button class="buy">Request School Quote on WhatsApp</button></a>
 
 </div>
 </section>
@@ -211,13 +247,16 @@ function setLang(lang){
     document.getElementById('siteTitle').innerText = 'Vitabu vya Maadili ya Amani';
     document.getElementById('siteSub').innerText = 'Hadithi nafuu kwa watoto – Kiingereza na Kiswahili';
     document.getElementById('introText').innerText =
-      'Vitabu vya Amani vinafundisha kushirikiana, heshima na maadili mema. Baada ya malipo, vitabu hutumwa mara moja kupitia WhatsApp.';
+      'Vitabu vya Amani vinafundisha kushirikiana, heshima na maadili mema. Baada ya malipo, vitabu hutumwa mara moja kama PDF kupitia WhatsApp.';
     document.getElementById('booksTitle').innerText = '📚 Vitabu Binafsi';
-    document.getElementById('bundleTitle').innerText = '📦 Vifurushi vya Vitabu';
-    document.getElementById('b1').innerText = 'Bundle ya Kiingereza – Vitabu 3';
-    document.getElementById('b1btn').innerText = 'Nunua Bundle';
-    document.getElementById('b2').innerText = 'Bundle ya Kiswahili – Vitabu 3';
-    document.getElementById('b2btn').innerText = 'Nunua Bundle';
+    document.getElementById('deliveryTitle').innerText = '📥 Jinsi ya Kupata Vitabu';
+    document.getElementById('deliveryText').innerHTML =
+      '<strong>Hatua ya 1:</strong> Bonyeza “Nunua WhatsApp”.<br>' +
+      '<strong>Hatua ya 2:</strong> Utapokea maelekezo ya malipo.<br>' +
+      '<strong>Hatua ya 3:</strong> Baada ya malipo, vitabu hutumwa mara moja kama PDF.<br><br>' +
+      '📘 Soma kwenye simu au chapisha nyumbani.';
+    document.getElementById('printTitle').innerText = '🖨️ Vitabu vya Kuchapishwa';
+    document.getElementById('schoolTitle').innerText = '🏫 Bei za Shule na Oda za Jumla';
     document.getElementById('footerText').innerText = '© 2026 Hadithi za Amani';
   } else {
     location.reload();
