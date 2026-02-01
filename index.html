@@ -1,114 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Amani Life Skills Books</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+:root{
+  --bg:#fffaf3;
+  --card:#ffffff;
+  --accent:#22c55e;
+  --accent-dark:#16a34a;
+  --text:#2d2d2d;
+  --muted:#6b7280;
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#fffaf3;
-  color:#333;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
+
 header{
-  background:linear-gradient(135deg,#ffb703,#ffd166);
   padding:40px 20px;
   text-align:center;
+  background:linear-gradient(135deg,#fde68a,#fcd34d);
+  animation:slideDown 1s ease;
 }
-header h1{margin:0;font-size:32px}
-header p{margin-top:6px;font-size:16px}
 
-.lang-switch button{
-  margin:10px 6px 0;
-  padding:8px 16px;
+header h1{
+  font-size:2.5rem;
+  margin:0;
+}
+header p{
+  margin-top:10px;
+  font-size:1.1rem;
+}
+
+.lang-toggle{
+  margin-top:20px;
+}
+.lang-toggle button{
   border:none;
-  border-radius:20px;
-  background:#333;
-  color:#fff;
+  padding:10px 16px;
+  margin:0 5px;
+  border-radius:999px;
   cursor:pointer;
-  font-size:13px;
+  background:#fff;
+  font-weight:600;
+}
+.lang-toggle button.active{
+  background:var(--accent);
+  color:white;
 }
 
 section{
-  padding:35px 20px;
+  padding:50px 20px;
   max-width:1200px;
   margin:auto;
 }
 
-.books{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:22px;
-}
-
-.book{
-  background:#fff;
-  border-radius:18px;
-  padding:14px;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-  display:flex;
-  flex-direction:column;
+h2{
+  margin-bottom:30px;
+  font-size:2rem;
   text-align:center;
 }
 
-.book img{
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transition:transform .3s, box-shadow .3s;
+  animation:fadeUp .8s ease;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px rgba(0,0,0,.12);
+}
+
+.card img{
   width:100%;
   height:360px;
   object-fit:cover;
-  border-radius:14px;
+  border-radius:12px;
 }
 
-.book h3{
-  margin:14px 0 6px;
+.card h3{
+  margin:15px 0 5px;
+  text-align:center;
 }
 
 .price{
-  font-weight:bold;
-  color:#2a9d8f;
+  color:var(--accent-dark);
+  font-weight:700;
+  margin:6px 0;
+}
+
+.btn{
   margin-top:auto;
-  margin-bottom:10px;
+  background:var(--accent);
+  color:white;
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:700;
+  transition:background .3s, transform .2s;
+}
+.btn:hover{
+  background:var(--accent-dark);
+  transform:scale(1.05);
 }
 
-.buy{
-  background:#25d366;
-  border:none;
-  padding:10px 20px;
-  color:#fff;
-  font-size:14px;
-  border-radius:22px;
-  cursor:pointer;
+.school-table{
+  overflow-x:auto;
 }
-
-.info-box{
-  background:#fff;
-  border-radius:16px;
-  padding:22px;
-  box-shadow:0 6px 16px rgba(0,0,0,.08);
-  line-height:1.6;
-}
-
 table{
   width:100%;
   border-collapse:collapse;
+  background:white;
+  border-radius:var(--radius);
+  overflow:hidden;
 }
-
-th, td{
-  padding:10px;
-  border:1px solid #ddd;
-  text-align:left;
+th,td{
+  padding:16px;
+  text-align:center;
 }
-
 th{
-  background:#f2f2f2;
+  background:#fef3c7;
+}
+tr:nth-child(even){
+  background:#fff7ed;
 }
 
 footer{
-  background:#eee;
-  padding:18px;
+  padding:30px;
   text-align:center;
-  font-size:13px;
+  color:var(--muted);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px)}
+  to{opacity:1; transform:translateY(0)}
+}
+@keyframes slideDown{
+  from{opacity:0; transform:translateY(-40px)}
+  to{opacity:1; transform:translateY(0)}
 }
 </style>
 </head>
@@ -116,150 +165,120 @@ footer{
 <body>
 
 <header>
-<h1 id="siteTitle">Amani Life Skills Books</h1>
-<p id="siteSub">Affordable children’s stories in English & Kiswahili</p>
-
-<div class="lang-switch">
-<button onclick="setLang('en')">English</button>
-<button onclick="setLang('sw')">Kiswahili</button>
-</div>
+  <h1 id="title">Amani Life Skills Books</h1>
+  <p id="subtitle">Beautiful stories that teach kindness, courage & sharing</p>
+  <div class="lang-toggle">
+    <button class="active" onclick="setLang('en')">English</button>
+    <button onclick="setLang('sw')">Kiswahili</button>
+  </div>
 </header>
 
 <section>
-<p id="introText">
-Amani Storybooks teach kindness, sharing, respect, and good values.
-After payment, books are delivered instantly as PDFs via WhatsApp.
-</p>
-</section>
+<h2 id="booksTitle">Individual Books</h2>
 
-<section>
-<h2 id="booksTitle">📚 Individual Books</h2>
+<div class="grid">
 
-<div class="books">
-
-<div class="book">
+<div class="card">
 <img src="english-cover.jpg">
-<h3>Amani Big Surprise</h3>
+<h3>Amani’s Big Surprise</h3>
 <p class="price">Tsh 3,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%20Amani%20Big%20Surprise">
-<button class="buy">Buy on WhatsApp</button></a>
+<a class="btn" href="https://wa.me/255746584214?text=Hello,%20I%20want%20Amani%20Big%20Surprise">Buy on WhatsApp</a>
 </div>
 
-<div class="book">
+<div class="card">
 <img src="amani-share-cover.jpg">
 <h3>Amani Learns to Share</h3>
 <p class="price">Tsh 3,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Share">
-<button class="buy">Buy on WhatsApp</button></a>
+<a class="btn" href="https://wa.me/255746584214?text=Hello,%20I%20want%20Amani%20Learns%20to%20Share">Buy on WhatsApp</a>
 </div>
 
-<div class="book">
+<div class="card">
 <img src="amani-sorry-cover.jpg">
 <h3>Amani Learns to Say Sorry</h3>
 <p class="price">Tsh 3,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Say%20Sorry">
-<button class="buy">Buy on WhatsApp</button></a>
+<a class="btn" href="https://wa.me/255746584214?text=Hello,%20I%20want%20Amani%20Learns%20to%20Say%20Sorry">Buy on WhatsApp</a>
 </div>
 
-<!-- NEW BOOK: BE BRAVE -->
-<div class="book">
+<div class="card">
 <img src="amani-brave-cover.jpg">
 <h3>Amani Learns to Be Brave</h3>
 <p class="price">Tsh 3,000</p>
-<a href="https://wa.me/255746584214?text=I%20want%20Amani%20Learns%20to%20Be%20Brave">
-<button class="buy">Buy on WhatsApp</button></a>
-</div>
-
-<div class="book">
-<img src="amani-share-sw-cover.jpg">
-<h3>Amani Anajifunza Kushirikiana</h3>
-<p class="price">Tsh 3,000</p>
-<a href="https://wa.me/255746584214?text=Ningependa%20Amani%20Anajifunza%20Kushirikiana">
-<button class="buy">Nunua WhatsApp</button></a>
-</div>
-
-<div class="book">
-<img src="amani-sorry-sw-cover.jpg">
-<h3>Amani Anajifunza Kuomba Msamaha</h3>
-<p class="price">Tsh 3,000</p>
-<a href="https://wa.me/255746584214?text=Ningependa%20Amani%20Anajifunza%20Kuomba%20Msamaha">
-<button class="buy">Nunua WhatsApp</button></a>
+<a class="btn" href="https://wa.me/255746584214?text=Hello,%20I%20want%20Amani%20Learns%20to%20Be%20Brave">Buy on WhatsApp</a>
 </div>
 
 </div>
 </section>
 
 <section>
-<h2 id="deliveryTitle">📥 How Download Works</h2>
+<h2 id="bundleTitle">Bundles (Best Value)</h2>
 
-<div class="info-box" id="deliveryText">
-<strong>Step 1:</strong> Click “Buy on WhatsApp”.<br>
-<strong>Step 2:</strong> You receive payment instructions.<br>
-<strong>Step 3:</strong> After payment, your book or bundle is sent instantly as a PDF.<br><br>
-📘 Read on phone, tablet, or print at home.
+<div class="grid">
+<div class="card">
+<h3>3-Book Family Bundle</h3>
+<p>Share • Sorry • Brave</p>
+<p class="price">Tsh 8,000</p>
+<a class="btn" href="https://wa.me/255746584214?text=Hello,%20I%20want%203-Book%20Family%20Bundle">Buy Bundle</a>
+</div>
+
+<div class="card">
+<h3>5-Book School Bundle</h3>
+<p>All titles • English & Kiswahili</p>
+<p class="price">Tsh 12,000</p>
+<a class="btn" href="https://wa.me/255746584214?text=Hello,%20I%20want%205-Book%20School%20Bundle">Buy Bundle</a>
+</div>
 </div>
 </section>
 
 <section>
-<h2 id="printTitle">🖨️ Printed Books & School Orders</h2>
-
-<div class="info-box" id="printText">
-We also offer <strong>printed Amani storybooks</strong> for:<br>
-• Schools & kindergartens<br>
-• NGOs & community programs<br>
-• Bulk family orders<br><br>
-
-📦 English, Kiswahili, or bilingual<br>
-📐 A4 child-friendly layout<br><br>
-
-<a href="https://wa.me/255746584214?text=I%20want%20printed%20Amani%20books%20for%20school%20or%20bulk%20order">
-<button class="buy">Order Printed Books on WhatsApp</button></a>
-</div>
-</section>
-
-<section>
-<h2 id="schoolTitle">🏫 School & Bulk Pricing</h2>
-
-<div class="info-box">
-
+<h2 id="schoolTitle">School & Bulk Pricing</h2>
+<div class="school-table">
 <table>
-<tr><th>Quantity</th><th>Price per Book</th><th>Notes</th></tr>
-<tr><td>10 – 49 books</td><td>Tsh 2,500</td><td>Small school orders</td></tr>
-<tr><td>50 – 199 books</td><td>Tsh 2,000</td><td>Medium school programs</td></tr>
-<tr><td>200+ books</td><td>Custom quote</td><td>NGOs & large projects</td></tr>
+<tr>
+<th>Quantity</th>
+<th>Price per Book</th>
+<th>Total</th>
+</tr>
+<tr>
+<td>20+</td>
+<td>Tsh 2,500</td>
+<td>Discounted</td>
+</tr>
+<tr>
+<td>50+</td>
+<td>Tsh 2,000</td>
+<td>Best Value</td>
+</tr>
+<tr>
+<td>100+</td>
+<td>Tsh 1,500</td>
+<td>NGO Pricing</td>
+</tr>
 </table>
-
-<br>
-
-<a href="https://wa.me/255746584214?text=I%20want%20school%20bulk%20pricing%20for%20Amani%20books">
-<button class="buy">Request School Quote on WhatsApp</button></a>
-
 </div>
 </section>
 
 <footer>
-<p id="footerText">© 2026 Amani Digital Stories</p>
+<p>After payment, books are delivered instantly via WhatsApp 📲</p>
+<p>© Amani Life Skills Books</p>
 </footer>
 
 <script>
 function setLang(lang){
-  if(lang === 'sw'){
-    document.getElementById('siteTitle').innerText = 'Vitabu vya Maadili ya Amani';
-    document.getElementById('siteSub').innerText = 'Hadithi nafuu kwa watoto – Kiingereza na Kiswahili';
-    document.getElementById('introText').innerText =
-      'Vitabu vya Amani vinafundisha kushirikiana, heshima na maadili mema. Baada ya malipo, vitabu hutumwa mara moja kama PDF kupitia WhatsApp.';
-    document.getElementById('booksTitle').innerText = '📚 Vitabu Binafsi';
-    document.getElementById('deliveryTitle').innerText = '📥 Jinsi ya Kupata Vitabu';
-    document.getElementById('deliveryText').innerHTML =
-      '<strong>Hatua ya 1:</strong> Bonyeza “Nunua WhatsApp”.<br>' +
-      '<strong>Hatua ya 2:</strong> Utapokea maelekezo ya malipo.<br>' +
-      '<strong>Hatua ya 3:</strong> Baada ya malipo, vitabu hutumwa mara moja kama PDF.<br><br>' +
-      '📘 Soma kwenye simu au chapisha nyumbani.';
-    document.getElementById('printTitle').innerText = '🖨️ Vitabu vya Kuchapishwa';
-    document.getElementById('schoolTitle').innerText = '🏫 Bei za Shule na Oda za Jumla';
-    document.getElementById('footerText').innerText = '© 2026 Hadithi za Amani';
-  } else {
-    location.reload();
+  document.querySelectorAll(".lang-toggle button").forEach(b=>b.classList.remove("active"));
+  event.target.classList.add("active");
+
+  if(lang==="sw"){
+    title.innerText="Vitabu vya Maisha vya Amani";
+    subtitle.innerText="Hadithi nzuri za kuwafundisha watoto maadili";
+    booksTitle.innerText="Vitabu Binafsi";
+    bundleTitle.innerText="Vifurushi";
+    schoolTitle.innerText="Bei za Shule";
+  }else{
+    title.innerText="Amani Life Skills Books";
+    subtitle.innerText="Beautiful stories that teach kindness, courage & sharing";
+    booksTitle.innerText="Individual Books";
+    bundleTitle.innerText="Bundles (Best Value)";
+    schoolTitle.innerText="School & Bulk Pricing";
   }
 }
 </script>
